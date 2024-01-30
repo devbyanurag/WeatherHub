@@ -40,6 +40,6 @@ export default function Home() {
     //     </main>
     //   </div>
     // </div>
-    <div>hello world</div>
+    <div>hello world!</div>
   );
 }
