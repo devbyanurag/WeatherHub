@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Header from "./components/header/page";
 import { WeatherDataType } from "./types/weather";
 import { api_openweathermap } from "./utils/apis";
+import Script from 'next/script';
 
 
 export default function Home() {
@@ -40,6 +41,23 @@ export default function Home() {
     //     </main>
     //   </div>
     // </div>
-    <div>hello world!</div>
+    <div>
+      <Script
+        strategy="lazyOnload"
+        id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+      />
+
+      <Script strategy="lazyOnload">
+        {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                    page_path: window.location.pathname,
+                    });
+                `}
+      </Script>
+      hello world!123</div>
   );
 }
