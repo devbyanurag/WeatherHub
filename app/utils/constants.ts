@@ -1,0 +1,1 @@
+export const BASE_URL_OPENWEATHERMAP="https://api.openweathermap.org/data/2.5/"
