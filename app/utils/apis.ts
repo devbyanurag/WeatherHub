@@ -8,7 +8,8 @@ export const api_openweathermap: AxiosInstance = axios.create({
 export const api_geo_openweathermap: AxiosInstance = axios.create({
     baseURL: BASE_URL_GEO_OPENWEATHERMAP,
     headers: {
-      'Referrer-Policy': 'unsafe-url',
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
       // other headers if needed
     },
   });
