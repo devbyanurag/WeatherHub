@@ -9,10 +9,11 @@ import { Forecasted_Value_Type } from '@/app/types/forecast_weather';
 
 interface LeftContainerProps {
     weather: WeatherDataType,
-    forecastedWeather: Forecasted_Value_Type
+    forecastedWeather: Forecasted_Value_Type,
+    stateLocation: string
   }
 
-const LeftContainer = ({forecastedWeather, weather}:LeftContainerProps) => {
+const LeftContainer = ({forecastedWeather, weather, stateLocation}:LeftContainerProps) => {
   const { celsius } = useCelsius();
 
   return (
@@ -20,7 +21,7 @@ const LeftContainer = ({forecastedWeather, weather}:LeftContainerProps) => {
     <div className={styles.heading}>
       <div className={styles.location}>
         <h2>{weather.name}</h2>
-        <p>Uttarakhand, {weather.sys.country}</p>
+        <p>{stateLocation}, {weather.sys.country}</p>
       </div>
       <div>
       <p className={styles.time}>{formatTimestamp(weather.dt)}</p>

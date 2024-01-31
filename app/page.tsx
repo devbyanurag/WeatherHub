@@ -1565,17 +1565,14 @@ export default function Home() {
   const [weather, setWeather] = useState<WeatherDataType | null>(null)
   const [forecastedWeather, setForecastedWeather] = useState<Forecasted_Value_Type | null>(null)
 
-  const [latitude, setLatitude] = useState<number>(28.6517178)
-  const [longitude, setlongitude] = useState<number>(77.2219388)
-  const [currentDateTime, setcurrentDateTime] = useState<Date>(new Date())
-  const { celsius, setCelsius } = useCelsius();
+  const [latitude, setLatitude] = useState<number>(30.3255646)
+  const [longitude, setlongitude] = useState<number>(78.0436813)
+  const [stateLocation,setStateLocation]=useState<string>('Uttarakhand')
+  
 
   useEffect(() => {
-    // getWeatherData()  
-    setWeather(val)
-    setForecastedWeather(forecast_val)
-  }, [])
-  // console.log(weather)
+    getWeatherData()
+  }, [latitude,longitude])
 
   const getWeatherData = async () => {
     try {
@@ -1584,23 +1581,36 @@ export default function Home() {
         `/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.NEXT_PUBLIC_APP_ID}`,
       );
       setWeather(response.data);
-      // console.log(response.data)
+      const response_forecast = await api_openweathermap.get(
+        `/forecast?lat=${latitude}&lon=${longitude}&appid=${process.env.NEXT_PUBLIC_APP_ID}`,
+      );
+      setForecastedWeather(response_forecast.data);
+
+      // setForecastedWeather(forecast_val)
+      // setWeather(val)
+      
 
     } catch (error) {
       console.error('Error fetching weather data:', error);
     }
   };
 
+  const changeLatLong=(lat: number, lon: number, stateLoc: string)=>{
+    setLatitude(lat)
+    setlongitude(lon)
+    setStateLocation(stateLoc)
+  }
+
 
   return (
     <div className={styles.container}>
       <div className={styles.displayNone}>
-        <HeaderContainer/>
+        <HeaderContainer changeLatLong={changeLatLong}/>
       </div>
-      {/* {weather && forecastedWeather && <LeftContainer weather={weather} forecastedWeather={forecastedWeather} />} */}
+      {weather && forecastedWeather && <LeftContainer weather={weather} forecastedWeather={forecastedWeather} stateLocation={stateLocation} />}
      
 
-      {/* {weather && forecastedWeather && <RightContainer weather={weather} forecastedWeather={forecastedWeather} />} */}
+      {weather && forecastedWeather && <RightContainer weather={weather} forecastedWeather={forecastedWeather}  changeLatLong={changeLatLong}/>}
 
     </div>
   )

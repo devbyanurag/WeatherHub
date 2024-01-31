@@ -11,10 +11,11 @@ import ProjectionCard from '../ProjectionCard/ProjectionCard';
 import { ForecastedWeather, Forecasted_Value_Type } from '@/app/types/forecast_weather';
 interface RightContainerProps {
   weather: WeatherDataType,
-  forecastedWeather: Forecasted_Value_Type
+  forecastedWeather: Forecasted_Value_Type,
+  changeLatLong: (lat: number, lon: number, stateLoc: string) => void
 }
 
-const RightContainer = ({ forecastedWeather, weather }: RightContainerProps) => {
+const RightContainer = ({ forecastedWeather, weather, changeLatLong }: RightContainerProps) => {
   const { celsius } = useCelsius();
   const indicesToRetrieve = [7, 15, 23, 31, 39];
   const [weeklyForecast, setWeeklyForecast] = useState<ForecastedWeather[]>([])
@@ -27,7 +28,7 @@ const RightContainer = ({ forecastedWeather, weather }: RightContainerProps) => 
   return (
     <div className={styles.container}>
       <div className={styles.displayNone}>
-        <HeaderContainer />
+        <HeaderContainer changeLatLong={changeLatLong} />
       </div>
       <div className={styles.right_container}>
         <h1 className={styles.heading}>Weather Highlights</h1>
