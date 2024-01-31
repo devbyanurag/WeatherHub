@@ -16,13 +16,12 @@ interface RightContainerProps {
 
 const RightContainer = ({ forecastedWeather, weather }: RightContainerProps) => {
   const { celsius } = useCelsius();
-  // const indicesToRetrieve = [8, 16, 24, 32, 39];
   const indicesToRetrieve = [7, 15, 23, 31, 39];
   const [weeklyForecast, setWeeklyForecast] = useState<ForecastedWeather[]>([])
   useEffect(() => {
     const selectedValues = indicesToRetrieve.map((index) => forecastedWeather.list[index]);
     setWeeklyForecast(selectedValues)
-  }, [forecastedWeather])
+  }, [forecastedWeather, indicesToRetrieve])
 
 
   return (
@@ -48,8 +47,8 @@ const RightContainer = ({ forecastedWeather, weather }: RightContainerProps) => 
         <h1 className={styles.heading}>Weather Projections</h1>
         <div className={styles.projection_container}>
           {
-            weeklyForecast.map((data)=>{
-              return <ProjectionCard  weeklyForecast={data}/>
+            weeklyForecast.map((data,index)=>{
+              return <ProjectionCard key={index}  weeklyForecast={data}/>
 
             })
           }

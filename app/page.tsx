@@ -1599,8 +1599,8 @@ export default function Home() {
       </div>
       {/* {weather && forecastedWeather && <LeftContainer weather={weather} forecastedWeather={forecastedWeather} />} */}
      
-{/* 
-      {weather && forecastedWeather && <RightContainer weather={weather} forecastedWeather={forecastedWeather} />} */}
+
+      {/* {weather && forecastedWeather && <RightContainer weather={weather} forecastedWeather={forecastedWeather} />} */}
 
     </div>
   )
