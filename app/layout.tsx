@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+      <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
       <body className={inter.className}><CelsiusProvider>{children}</CelsiusProvider></body>  
     </html>
   );
