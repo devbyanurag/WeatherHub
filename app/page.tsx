@@ -1,12 +1,12 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import Header from "./components/Header/Header";
 import { WeatherDataType } from "./types/weather";
 import { api_openweathermap } from "./utils/apis";
 import styles from './page.module.scss'
 import { useCelsius } from './context/temperature';
 import LeftContainer from './components/LeftContainer/LeftContainer';
 import RightContainer from './components/RightContainer/RightContainer';
+import HeaderContainer from './components/HeaderContainer/HeaderContainer';
 
 
 export default function Home() {
@@ -1594,7 +1594,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.displayNone}>
-        <Header/>
+        <HeaderContainer/>
       </div>
       {/* {weather && forecastedWeather && <LeftContainer weather={weather} forecastedWeather={forecastedWeather} />} */}
      
