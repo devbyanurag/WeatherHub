@@ -19,12 +19,21 @@ const HeaderContainer = ({changeLatLong}:HeaderContainerProps) => {
       const response = await api_geo_openweathermap.get(
         `direct?q=${searchText}&limit=5&lang=en&appid=${process.env.NEXT_PUBLIC_APP_ID}`,
       );
-      console.log(response.data)
       setSearchResult(response.data)
     } catch (error) {
       console.error('Error fetching weather data:', error);
     }
   };
+  useEffect(() => {
+    const getData = setTimeout(() => {
+      if(searchText!==''){
+        handleSearch()
+      }
+      
+    }, 1000)
+
+    return () => clearTimeout(getData)
+  }, [searchText])
 
 
   const handleClear = () => {
