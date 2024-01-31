@@ -1,0 +1,30 @@
+.card_container {
+    background-color: #ffffff;
+    flex-basis: calc(24% - 10px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 5px;
+    .card_info {
+      .heading {
+        color: #616161;
+        font-size: 16px;
+        padding: 0;
+      }
+      .heading_val {
+        font-size: 24px;
+      }
+    }
+
+    @media screen and (max-width: 1300px) {
+      flex-basis: calc(31.1%);
+    }
+    @media screen and (max-width: 992px) {
+      flex-basis: calc(50% - 10px);
+    }
+    @media screen and (max-width: 670px) {
+      flex-basis: calc(100% - 10px);
+    }
+  }

@@ -1,11 +1,12 @@
 import React from 'react'
 
-import styles from './right_container.module.scss'
+import styles from './RightContainer.module.scss'
 import Image from 'next/image';
 import { formatTimestamp, formatVisiblity, kelvinToCelsius, kelvinToFahrenheit } from '@/app/utils/services';
 import { useCelsius } from '@/app/context/temperature';
 import { WeatherDataType } from '@/app/types/weather';
 import HeaderContainer from '../HeaderContainer/HeaderContainer';
+import HighlightCard from '../HighlightCard/HighlightCard';
 interface RightContainerProps {
   weather: WeatherDataType,
   forecastedWeather: Forecasted_Value_Type
@@ -23,98 +24,18 @@ const RightContainer = ({ forecastedWeather, weather }: RightContainerProps) => 
       <div className={styles.right_container}>
         <h1 className={styles.heading}>Weather Highlights</h1>
         <div className={styles.highlights_container}>
-          <div className={styles.card_container}>
-            <div className={styles.card_info}>
-              <p className={styles.heading}>Sunrise</p>
-              <p className={styles.heading_val}>{formatTimestamp(weather.sys.sunrise)}</p>
-            </div>
-            <Image
-              src={`/openweathermap/sunrise.png`}
-              alt="weather"
-              width={50}
-              height={50}
-              priority
-            />
-          </div>
-          <div className={styles.card_container}>
-            <div className={styles.card_info}>
-              <p className={styles.heading}>Sunset </p>
-              <p className={styles.heading_val}>{formatTimestamp(weather.sys.sunset)}</p>
-            </div>
-            <Image
-              src={`/openweathermap/sunset.png`}
-              alt="weather"
-              width={50}
-              height={50}
-              priority
-            />
-          </div>
-          <div className={styles.card_container}>
-            <div className={styles.card_info}>
-              <p className={styles.heading}>Wind </p>
-              <p className={styles.heading_val}>{weather.wind.speed} km/h</p>
-            </div>
-            <Image
-              src={`/openweathermap/storm.png`}
-              alt="weather"
-              width={50}
-              height={50}
-              priority
-            />
-          </div>
-          <div className={styles.card_container}>
-            <div className={styles.card_info}>
-              <p className={styles.heading}>Visibility </p>
-              <p className={styles.heading_val}>{formatVisiblity(weather.visibility)}</p>
-            </div>
-            <Image
-              src={`/openweathermap/visible.png`}
-              alt="weather"
-              width={40}
-              height={40}
-              priority
-            />
-          </div>
-          <div className={styles.card_container}>
-            <div className={styles.card_info}>
-              <p className={styles.heading}>Humidity</p>
-              <p className={styles.heading_val}>{weather.main.humidity}%</p>
-            </div>
-            <Image
-              src={`/openweathermap/humidity.png`}
-              alt="weather"
-              width={40}
-              height={40}
-              priority
-            />
-          </div>
-          <div className={styles.card_container}>
-            <div className={styles.card_info}>
-              <p className={styles.heading}>Pressure</p>
-              <p className={styles.heading_val}>{weather.main.pressure} mb</p>
-            </div>
-            <Image
-              src={`/openweathermap/pressure.png`}
-              alt="weather"
-              width={40}
-              height={40}
-              priority
-            />
-          </div>
-          <div className={styles.card_container}>
-            <div className={styles.card_info}>
-              <p className={styles.heading}>Feels like</p>
-              <p className={styles.heading_val}>{formatTimestamp(weather.main.feels_like)}</p>
-            </div>
-            <Image
-              src={`/openweathermap/feels_like.png`}
-              alt="weather"
-              width={40}
-              height={40}
-              priority
-            />
-          </div>
+        <HighlightCard heading={'Sunrise'} heading_value={formatTimestamp(weather.sys.sunrise)} image={'sunrise'} imgSize={50}/>
+        <HighlightCard heading={'Sunset'} heading_value={formatTimestamp(weather.sys.sunset)} image={'sunset'} imgSize={50}/>
+        <HighlightCard heading={'Wind'} heading_value={`${weather.wind.speed} km/h`} image={'storm'} imgSize={50}/>
+        <HighlightCard heading={'Visibility'} heading_value={formatVisiblity(weather.visibility)} image={'visible'} imgSize={50}/>
+
+        <HighlightCard heading={'Humidity'} heading_value={`${weather.main.humidity}%`} image={'humidity'} imgSize={50}/>
+
+        <HighlightCard heading={'Pressure'} heading_value={`${weather.main.pressure} mb`} image={'pressure'} imgSize={50}/>
+
+        <HighlightCard heading={'Feels like'} heading_value={celsius ? kelvinToCelsius(weather.main.feels_like):kelvinToFahrenheit(weather.main.feels_like)} image={'feels_like'} imgSize={50}/>
         </div>
+        <div className={styles.divider}></div>
       </div>
     </div>
   )

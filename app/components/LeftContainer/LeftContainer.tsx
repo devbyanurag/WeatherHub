@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './left_container.module.scss'
+import styles from './LeftContainer.module.scss'
 import Image from 'next/image';
 import { formatDate, formatTimestamp, kelvinToCelsius, kelvinToFahrenheit } from '@/app/utils/services';
 import { useCelsius } from '@/app/context/temperature';

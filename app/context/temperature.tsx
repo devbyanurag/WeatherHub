@@ -8,6 +8,7 @@ type Props = {
 type CelsiusContextValue = {
   celsius: boolean;
   setCelsius: Dispatch<SetStateAction<boolean>>;
+  setTemperatureUnit: (value: boolean) => void;
 };
 
 const CelsiusContext = createContext<CelsiusContextValue | undefined>(undefined);
@@ -15,9 +16,14 @@ const CelsiusContext = createContext<CelsiusContextValue | undefined>(undefined)
 export function CelsiusProvider({ children }: Props) {
   const [celsius, setCelsius] = useState<boolean>(true);
 
+  const setTemperatureUnit = (value: boolean) => {
+    setCelsius(value);
+  };
+
   const value: CelsiusContextValue = {
     celsius,
     setCelsius,
+    setTemperatureUnit
   };
 
   return (
