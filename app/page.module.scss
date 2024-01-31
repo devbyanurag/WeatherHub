@@ -1,0 +1,24 @@
+.container{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    .displayNone{
+        display: none;
+    }
+    
+    .right_container{
+        height: 1100px;
+        padding: 1rem;
+        flex: 1;
+        margin-left: 350px;
+    }
+    @media screen and (max-width: 767px) {
+        display: block;
+        .displayNone{
+            display: block;
+        }
+        .right_container{
+            margin-left: 0;
+        }
+      }
+}

@@ -17,11 +17,14 @@ interface Main {
     temp_max: number;
     pressure: number;
     humidity: number;
+    sea_level?: number;
+    grnd_level?: number;
 }
 
 interface Wind {
     speed: number;
     deg: number;
+    gust?: number;
 }
 
 interface Clouds {
