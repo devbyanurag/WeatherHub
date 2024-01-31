@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { formatDate, formatTimestamp, kelvinToCelsius, kelvinToFahrenheit } from '@/app/utils/services';
 import { useCelsius } from '@/app/context/temperature';
 import { WeatherDataType } from '@/app/types/weather';
+import { Forecasted_Value_Type } from '@/app/types/forecast_weather';
 
 interface LeftContainerProps {
     weather: WeatherDataType,

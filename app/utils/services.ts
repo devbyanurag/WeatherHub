@@ -25,6 +25,17 @@ export function formatDate(timestamp: number): string {
     return `${formattedDate}`;
 }
 
+export function formatWeekDate(timestamp: number): string {
+    const date = new Date(timestamp * 1000);
+    const options: Intl.DateTimeFormatOptions = {
+        weekday: 'long', // or 'short', 'narrow'
+    };
+
+    const formattedDate = date.toLocaleDateString([], options);
+
+    return `${formattedDate}`;
+}
+
 export const kelvinToCelsius = (kelvin: number): string => {
     const value = kelvin - 273.15
     return `${value.toFixed(1)} °C`;

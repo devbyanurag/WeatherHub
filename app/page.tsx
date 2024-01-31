@@ -7,6 +7,7 @@ import { useCelsius } from './context/temperature';
 import LeftContainer from './components/LeftContainer/LeftContainer';
 import RightContainer from './components/RightContainer/RightContainer';
 import HeaderContainer from './components/HeaderContainer/HeaderContainer';
+import { Forecasted_Value_Type } from './types/forecast_weather';
 
 
 export default function Home() {
@@ -1574,7 +1575,7 @@ export default function Home() {
     setWeather(val)
     setForecastedWeather(forecast_val)
   }, [])
-  console.log(weather)
+  // console.log(weather)
 
   const getWeatherData = async () => {
     try {
@@ -1583,7 +1584,7 @@ export default function Home() {
         `/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.NEXT_PUBLIC_APP_ID}`,
       );
       setWeather(response.data);
-      console.log(response.data)
+      // console.log(response.data)
 
     } catch (error) {
       console.error('Error fetching weather data:', error);
@@ -1598,8 +1599,8 @@ export default function Home() {
       </div>
       {/* {weather && forecastedWeather && <LeftContainer weather={weather} forecastedWeather={forecastedWeather} />} */}
      
-
-      {/* {weather && forecastedWeather && <RightContainer weather={weather} forecastedWeather={forecastedWeather} />} */}
+{/* 
+      {weather && forecastedWeather && <RightContainer weather={weather} forecastedWeather={forecastedWeather} />} */}
 
     </div>
   )

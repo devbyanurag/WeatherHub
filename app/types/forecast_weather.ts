@@ -1,8 +1,8 @@
-interface Forecasted_Value_Type {
+export interface Forecasted_Value_Type {
     cod: string;
     message: number;
     cnt: number;
-    list: Weather[];
+    list: ForecastedWeather[];
     city: City;
    
 }
@@ -21,7 +21,7 @@ interface City {
     sunset: number;
 }
 
-interface Weather {
+export interface ForecastedWeather {
     dt: number;
     main: {
         temp: number;
