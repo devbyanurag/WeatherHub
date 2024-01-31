@@ -21,7 +21,7 @@ const RightContainer = ({ forecastedWeather, weather }: RightContainerProps) => 
   useEffect(() => {
     const selectedValues = indicesToRetrieve.map((index) => forecastedWeather.list[index]);
     setWeeklyForecast(selectedValues)
-  }, [forecastedWeather, indicesToRetrieve])
+  }, [forecastedWeather])
 
 
   return (
