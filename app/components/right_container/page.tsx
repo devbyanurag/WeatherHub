@@ -6,7 +6,6 @@ import { formatTimestamp, formatVisiblity, kelvinToCelsius, kelvinToFahrenheit }
 import { useCelsius } from '@/app/context/temperature';
 import { WeatherDataType } from '@/app/types/weather';
 import Header from '../header/page';
-import useScreenWidth from '@/app/hooks/useScreenWidth';
 
 interface RightContainerProps {
   weather: WeatherDataType,
@@ -15,7 +14,6 @@ interface RightContainerProps {
 
 const RightContainer = ({ forecastedWeather, weather }: RightContainerProps) => {
   const { celsius } = useCelsius();
-  const screenWidth = useScreenWidth();
 
 
   return (
