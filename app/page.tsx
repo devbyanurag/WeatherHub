@@ -1,12 +1,12 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import Header from "./components/header/page";
+import Header from "./components/Header/Header";
 import { WeatherDataType } from "./types/weather";
 import { api_openweathermap } from "./utils/apis";
 import styles from './page.module.scss'
 import { useCelsius } from './context/temperature';
-import LeftContainer from './components/left_container/page';
-import RightContainer from './components/right_container/page';
+import LeftContainer from './components/LeftContainer/LeftContainer';
+import RightContainer from './components/RightContainer/RightContainer';
 
 
 export default function Home() {

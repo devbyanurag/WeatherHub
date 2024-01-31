@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { formatTimestamp, formatVisiblity, kelvinToCelsius, kelvinToFahrenheit } from '@/app/utils/services';
 import { useCelsius } from '@/app/context/temperature';
 import { WeatherDataType } from '@/app/types/weather';
-import Header from '../header/page';
+import Header from '../Header/Header';
 
 interface RightContainerProps {
   weather: WeatherDataType,
