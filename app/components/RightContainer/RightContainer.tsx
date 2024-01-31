@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { formatTimestamp, formatVisiblity, kelvinToCelsius, kelvinToFahrenheit } from '@/app/utils/services';
 import { useCelsius } from '@/app/context/temperature';
 import { WeatherDataType } from '@/app/types/weather';
-// import Header from '../Header/Header';
+import Header from '../Header/Header';
 
 interface RightContainerProps {
   weather: WeatherDataType,
@@ -19,7 +19,7 @@ const RightContainer = ({ forecastedWeather, weather }: RightContainerProps) => 
   return (
     <div className={styles.container}>
       <div className={styles.displayNone}>
-        {/* <Header /> */}
+        <Header />
       </div>
       <div className={styles.right_container}>
         <h1 className={styles.heading}>Weather Highlights</h1>

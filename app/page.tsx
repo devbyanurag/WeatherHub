@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-// import Header from "./components/Header/Header";
+import Header from "./components/Header/Header";
 import { WeatherDataType } from "./types/weather";
 import { api_openweathermap } from "./utils/apis";
 import styles from './page.module.scss'
@@ -1594,7 +1594,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.displayNone}>
-        {/* <Header/> */}
+        <Header/>
       </div>
       {/* {weather && forecastedWeather && <LeftContainer weather={weather} forecastedWeather={forecastedWeather} />} */}
      
