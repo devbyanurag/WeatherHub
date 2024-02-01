@@ -14,9 +14,8 @@ export function formatTimestamp(timestamp: number): string {
 export function formatDate(timestamp: number): string {
     const date = new Date(timestamp * 1000);
     const options: Intl.DateTimeFormatOptions = {
-        // weekday: 'narrow', // or 'short', 'narrow'
         year: 'numeric',
-        month: 'short', // or 'short', 'narrow'
+        month: 'short', 
         day: 'numeric',
     };
 
@@ -28,7 +27,7 @@ export function formatDate(timestamp: number): string {
 export function formatWeekDate(timestamp: number): string {
     const date = new Date(timestamp * 1000);
     const options: Intl.DateTimeFormatOptions = {
-        weekday: 'long', // or 'short', 'narrow'
+        weekday: 'long', 
     };
 
     const formattedDate = date.toLocaleDateString([], options);
@@ -41,7 +40,6 @@ export const kelvinToCelsius = (kelvin: number): string => {
     return `${value.toFixed(1)} °C`;
 };
 
-// Function to convert Kelvin to Fahrenheit
 export const kelvinToFahrenheit = (kelvin: number): string => {
     const value = (kelvin * 9) / 5 - 459.67;
     return `${value.toFixed(1)} °F`;
